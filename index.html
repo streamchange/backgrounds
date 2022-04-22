@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>cAn YoU jUsT bLuR tHe bAckGroUnD?</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<script type="text/javascript" src="/index.js"></script>
+
+<body class="body">
+    <div class="bgImage" id="image"></div>
+    <div id="menu" class="menu">
+        <div class="topBar">
+            <input type="button" onclick='hideMenu()' value="Hide Menu">
+            <input type="button" class="reset" onclick="reset()" value="reset">
+            <br>
+        </div>
+        <div>
+            <br>
+            <input type='file' accept='image/*' onchange='openFile(event)' class="file">
+            <br>
+            <br>
+            <input type="range" id="brightness" min="0" max="1" value=".5" step="0.05" oninput="updateFX()">
+            <label for="brightness">Brightness</label>
+            <br>
+        <br>
+            <input type="range" id="blur" min="0" max="50" value="25" step="2.5" oninput="updateFX()">
+            <label for="blur">Blur</label>
+        </div>
+    </div>
+
+    <div id="showMenu" class="showMenu" onclick=showMenu()></div>
+ 
+</body>
+
+</html>
