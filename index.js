@@ -32,7 +32,14 @@ function checkLocalStorage() {
         loadFromLocalStorage()
     } else {
         console.log('nothing here')
+        getRandomImage()
     }
+}
+
+function getRandomImage(){
+    let bgImage = document.getElementById("image")
+    bgImage.style.backgroundImage = 'url("https://source.unsplash.com/random/1920x1080/?background")';
+    updateFX()
 }
 
 function reset(){
@@ -87,8 +94,46 @@ function showMenu(){
 
 function updateFX(){
     let valBlur = document.getElementById("blur").value
-    root.style.setProperty('--blur', valBlur+"px")
-
     let valBrightness = document.getElementById("brightness").value
+    let valScale = document.getElementById("scale").value
+    let valTranslateX = document.getElementById("translateX").value
+    let valTranslateY = document.getElementById("translateY").value
+    root.style.setProperty('--blur', valBlur+"px")
     root.style.setProperty('--brightness', valBrightness+"")
+    root.style.setProperty('--scale', valScale+"")
+    root.style.setProperty('--translateX', valTranslateX+"")
+    root.style.setProperty('--translateY', valTranslateY+"")
+}
+
+function resetValue(a){
+    switch (a){
+        case 'brightness':
+            root.style.setProperty('--brightness', 1+"");
+            document.getElementById("brightness").value = 1
+            break;
+        case 'blur':
+            root.style.setProperty('--blur', '0px');
+            document.getElementById("blur").value = 0
+            break;
+        case 'scale':
+            root.style.setProperty('--scale', 1)
+            document.getElementById("scale").value = 1
+            break;
+        case 'translateX':
+            root.style.setProperty('--translateX', 0)
+            document.getElementById("translateX").value = 0
+            break;
+        case 'translateY':
+            root.style.setProperty('--translateY', 0)
+            document.getElementById("translateY").value = 0
+            break;
+            
+
+    }
+
+
+    /*
+    root.style.setProperty('--scale', 1+"")
+    root.style.setProperty('--translateX', "0")
+    root.style.setProperty('--translateY', "0")*/
 }
